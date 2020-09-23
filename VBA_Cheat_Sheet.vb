@@ -8,6 +8,10 @@ SecondsElapsed = Round(Timer - StartTime, 2) 'Determine how many seconds code to
 MsgBox ("Macro executed successfully in " & SecondsElapsed & " seconds") '--'
 
 
+'_Easy Reference Method_
+'------------------------
+[A1].Value="Certain Value"
+
 '_Disabling worksheet recalculation, screen updating, statusbar updating_ Method 1_
 '----------------------------------------------------------------------------------
 Application.Calculation = xlCalculationManual
