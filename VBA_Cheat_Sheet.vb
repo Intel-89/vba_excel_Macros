@@ -126,6 +126,23 @@ For iCntr = lRow To 1 Step -1
 Next
 
 
+'_Other loops examples_
+'------------------------------------------------------------------------------------------------------------				
+For Each ws In Application.ActiveWorkbook.Worksheets
+    If ws.Name <> "Payroll" Then
+        ws.Visible = Hidden
+    End If
+Next
+
+
+For Each sht In ActiveWorkbook.Sheets
+'Test if Sheet is Hidden
+  If sht.Visible = xlSheetHidden Then
+    sht.Delete
+  End If
+Next sht				
+				
+				
 '_Creating a counter and increasing with the value inside a cell_
 '----------------------------------------------------------------
 Dim HVCounterPA1 As Long
@@ -161,7 +178,8 @@ Next
 '------------------------
 ActiveWorkbook.SaveAs Filename:="Falls_file.xlsx"
 Workbooks.Add.SaveAs Filename:="Errors_file.xlsx"
-
+'ActiveWorkbook.SaveAs Filename:="[file\path\filename.xlsx]", FileFormat:=xlOpenXMLWorkbook
+			
 '_Moving sheets from "errors" to 2nd workbook created_
 '-----------------------------------------------------
 Workbooks("Falls_file.xlsx").Sheets("Holtz Med. Errors").Move After:=Workbooks("Errors_file.xlsx").Sheets(Workbooks("Errors_file.xlsx").Sheets.Count)
